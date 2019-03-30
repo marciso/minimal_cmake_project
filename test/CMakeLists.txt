@@ -1,13 +1,28 @@
-add_executable(project_name_test_app
-	project_name_test.cpp)
+if (USE_GTEST)
+    add_executable(project_name_test_app
+        project_name_test.cpp)
 
-target_link_libraries(project_name_test_app
-    project_name
-	libgmock_main
-	libgtest
-	libgmock
-    )
+    target_link_libraries(project_name_test_app
+        project_name
+        libgmock_main
+        libgtest
+        libgmock
+        )
 
-add_test(NAME project_name_test
-	COMMAND project_name_test_app)
+    add_test(NAME project_name_test
+        COMMAND project_name_test_app)
+endif()
 
+if (USE_BENCHMARK)
+    add_executable(project_name_benchmark_app
+        project_name_benchmark.cpp)
+
+    target_link_libraries(project_name_benchmark_app
+        project_name
+        benchmark
+        benchmark_main
+        )
+
+    add_test(NAME project_name_benchmark
+        COMMAND project_name_benchmark_app)
+endif()

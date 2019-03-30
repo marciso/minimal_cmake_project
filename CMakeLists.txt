@@ -11,11 +11,11 @@ if(USE_GTEST OR USE_BENCHMARK)
 endif()
 
 if(USE_GTEST)
-    include(gtest.cmake)
+    include(cmake/gtest.cmake)
 endif()
 
 if(USE_BENCHMARK)
-    include(benchmark.cmake)
+    include(cmake/benchmark.cmake)
 endif()
 
 add_subdirectory(src)

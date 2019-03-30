@@ -15,7 +15,7 @@ new_name=${dst_dir_##*/}
 test -n "${new_name}" || die "could not get new project name"
 
 mkdir -p "${dst_dir}"
-rsync ${rsync_opts} --exclude=.git/ --exclude=*.sh "${src_dir}/" "${dst_dir}/"
+rsync ${rsync_opts} --exclude=.git/ --exclude=.*.un~ --exclude=*.sh "${src_dir}/" "${dst_dir}/"
 rsync ${rsync_opts} "${src_dir}/rename.sh" "${dst_dir}/rename.sh"
 
 ( cd "${dst_dir}"; ./rename.sh "${new_name}" ; )
